@@ -1,0 +1,78 @@
+{
+    
+    "appInfo": {
+        "creator": "Mariano Radusky",
+        "description":"This aplication helps traders keep track of their trades in one place. It has three main section: stocks, where they can find financial data from investing.com on their stock of interest, crypto where the same is possible but coming from Binance and history where a recod of trades and information about it can be held and shown.",
+        "url": "not defined"
+    },
+    "sections": [
+        {
+            "sectionName": "Stocks",
+            "description":"Page to recive and present finantial data on stocks on the user interface. Data comes from investing.com",
+            "cardName": "Stocks",
+            "pageTitle": "Stock information",
+            "relPath":"../stocks/"
+        },
+        {
+            "sectionName": "Crypto",
+            "description":"Page to recive and present finantial data on crypto on the user interface. Data comes from binance.com",
+            "cardName": "Cryptos",
+            "pageTitle": "Crypto information",
+            "relPath":"../crypto/"
+        },
+        {
+            "sectionName": "Trade history",
+            "description":"Page to recive and present finantial data on stocks on the user interface. Data comes from investing.com",
+            "cardName": "Trades",
+            "pageTitle": "Stock information",
+            "relPath":"../history/"
+        }
+
+    ],
+    "users":[{
+                "fullName":"Mariano Radusky",
+                "username":"mradusky",
+                "password":"Radusky",
+                "birthday":"1993-07-19",
+                "opHistory":[]
+            },
+            {
+                "fullName":"Magali Bustos",
+                "username":"maga",
+                "password":"holahola",
+                "birthday":"2022-02-04",
+                "opHistory":[
+                    {
+                        "opId":0,
+                        "ticker":"FB",
+                        "price":1,
+                        "dateOperated":"2022-02-04",
+                        "netAmmount":20,
+                        "commission":0.15,
+                        "totalAmmount":20.150000000000002,
+                        "quantity":20,
+                        "eqType":"IOL",
+                        "currency":"NaN",
+                        "exchange":"CEDEAR"
+                    },
+                    {
+                        "opId":1,
+                        "ticker":"AAPL",
+                        "price":230,
+                        "dateOperated":"2022-02-03",
+                        "netAmmount":460,
+                        "commission":3.4499999999999997,
+                        "totalAmmount":463.45000000000005,
+                        "quantity":2,
+                        "eqType":"IOL",
+                        "currency":"NaN",
+                        "exchange":"CEDEAR"
+                    }
+                ]
+            }
+        ],
+    "activeSession":true,
+    "activeUser":"maga",
+    "activeUserPosition":1,
+    "testVariable":false
+}
