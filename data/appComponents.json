@@ -1,0 +1,28 @@
+{
+    
+    "appInfo": {
+        "creator": "Mariano Radusky",
+        "description":"This aplication helps traders keep track of their trades in one place. It has three main section: stocks, where they can find financial data from investing.com on their stock of interest, crypto where the same is possible but coming from Binance and history where a recod of trades and information about it can be held and shown.",
+        "url": "not defined"
+    },
+    "sections": [
+        {
+            "sectionName": "Stocks",
+            "description":"Page to recive and present finantial data on stocks on the user interface. Data comes from investing.com",
+            "title": "Stocks",
+            "relPath":""
+        },
+        {
+            "sectionName": "Crypto",
+            "description":"Page to recive and present finantial data on crypto on the user interface. Data comes from binance.com",
+            "title": "Cryptos",
+            "relPath":"../crypto/"
+        },
+        {
+            "sectionName": "Trade history",
+            "description":"Page to recive and present finantial data on stocks on the user interface. Data comes from investing.com",
+            "title": "Trsde history for ",
+            "relPath":""
+        }
+    ]
+}

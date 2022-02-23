@@ -1,48 +1,48 @@
+//initianilaztion of app
+const app = new AppController(new DataModel(), new AppViewer());
+
+//Routing
+const routes = [
+    { path: '/', action: 'add' },
+    { path: '/history', action: 'list' },
+    { path: '/search', action: 'search' },
+]
+
+//getting browser rout 
+const parseLocation = () => location.hash.slice(1).toLocaleLowerCase() || '/';
 
 
 
-// Este scrip crea la aplicación inicial. 
-// Se crean las secciones necesarias para el funcionamiento del aplicativo
-import { DASHBOARD_USERS } from "./components/variables.js";
-import {App} from './components/App.js'
-import { User } from "./components/User.js";
-import { Sections} from './components/Sections.js';
-
-//Defino la variable dashboard para ser contenedora de la app
-let dashboard = ''
+const findActionByPath = (path, routes) => routes.find(r => r.path == path || undefined);
 
 
-// Obtengo el dato del localStorage
-let tempList = JSON.parse(localStorage.getItem(DASHBOARD_USERS))
-console.log(tempList)
 
-if (tempList == null || tempList == undefined){
-    // Inicializo la app en caso de que no exista
+const router = () => {
+    const path = parseLocation(); //get loc
+    //defines action with error as main action in case rout not found
+    const { action = 'error' } = findActionByPath(path, routes) || {};
+    console.log(action);
+    switch (action) {
+        case 'add':
+            app.add('#app')
+            break;
+        case 'list':
+            app.list('#app')
+            break;
+        case 'search':
+            app.search('#app')
+            break;
 
-    dashboard = new App(false)
-
-    // Creo un usuario modelo 
-    const user1 = new User('Mariano Radusky','mradusky', 'Radusky', '1993-07-19')
-
-    let stocks = new Sections('Mercado de acciones', 'Acciones', './#')
-    let crypto = new Sections('Mercado de crypto', 'Cryptos', './#')
-    let history = new Sections('Historial de operaciones', 'Historial', '../history/')
-    dashboard.addSection(stocks)
-    dashboard.addSection(crypto)
-    dashboard.addSection(history)
-    dashboard.addUser(user1)
-
-    console.log('No existía info y fue creada')
-
-    localStorage.setItem(DASHBOARD_USERS,JSON.stringify(dashboard));
-    console.log(dashboard)
-
-}else{
-    console.log('Existe info y ya fue tomada.')
-    dashboard = tempList
+        default:
+            ErrorComponent('#app');
+            break;
+    }
 }
 
-
-
-export {dashboard} // Exporto el dashboard para que pueda ser utilizado por el resto de
-//Scripts
+$(window).on('load', function () {
+    router()
+})
+$(window).on('hashchange', function (e) {
+    console.log('hash changed');
+    router();
+});
